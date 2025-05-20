@@ -51,32 +51,38 @@ public class SysMLModelService {
         Map<String, NamedElement> created = new HashMap<>();
 
         // Blocks
-        for(Object ob: s.optJSONArray("new_blocks")) {
-            JSONObject b = (JSONObject)ob;
-            Class block = ModelElementsManager.getInstance()
-                .createElement(Class.class, project.getModel());
-            StereotypesHelper.addStereotypeByString(block, "Block");
-            block.setName(b.getString("name"));
-            created.put(b.getString("name"), block);
+        JSONArray newBlocks = s.optJSONArray("new_blocks");
+        if (newBlocks != null) {
+            for (Object ob : newBlocks) {
+                JSONObject b = (JSONObject) ob;
+                Class block = ModelElementsManager.getInstance()
+                    .createElement(Class.class, project.getModel());
+                StereotypesHelper.addStereotypeByString(block, "Block");
+                block.setName(b.getString("name"));
+                created.put(b.getString("name"), block);
+            }
         }
 
         // Connections
-        for(Object oc: s.optJSONArray("new_connections")) {
-            JSONObject c = (JSONObject)oc;
-            NamedElement from = created.getOrDefault(c.getString("from"), null);
-            NamedElement to   = created.getOrDefault(c.getString("to"), null);
-            String type = c.getString("type");
-            if("satisfy".equalsIgnoreCase(type) && from instanceof Requirement && to!=null) {
-                Dependency d = ModelElementsManager.getInstance()
-                    .createDependency(project.getModel());
-                StereotypesHelper.addStereotypeByString(d, "satisfy");
-                d.getClients().add(from);
-                d.getSuppliers().add(to);
-            } else if("connector".equalsIgnoreCase(type)) {
-                // simple association
-                if(from instanceof Class && to instanceof Class) {
-                    ModelElementsManager.getInstance()
-                        .createAssociation((Class)from, (Class)to);
+        JSONArray newConnections = s.optJSONArray("new_connections");
+        if (newConnections != null) {
+            for (Object oc : newConnections) {
+                JSONObject c = (JSONObject) oc;
+                NamedElement from = created.getOrDefault(c.getString("from"), null);
+                NamedElement to = created.getOrDefault(c.getString("to"), null);
+                String type = c.getString("type");
+                if ("satisfy".equalsIgnoreCase(type) && from instanceof Requirement && to != null) {
+                    Dependency d = ModelElementsManager.getInstance()
+                        .createDependency(project.getModel());
+                    StereotypesHelper.addStereotypeByString(d, "satisfy");
+                    d.getClients().add(from);
+                    d.getSuppliers().add(to);
+                } else if ("connector".equalsIgnoreCase(type)) {
+                    // simple association
+                    if (from instanceof Class && to instanceof Class) {
+                        ModelElementsManager.getInstance()
+                            .createAssociation((Class) from, (Class) to);
+                    }
                 }
             }
         }
