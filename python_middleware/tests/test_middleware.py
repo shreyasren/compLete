@@ -17,3 +17,4 @@ def test_missing_body(client):
         '/complete_model', json={}, headers={'Authorization': 'Bearer testtoken'}
     )
     assert resp.status_code == 400
+    assert "error" in resp.get_json()
