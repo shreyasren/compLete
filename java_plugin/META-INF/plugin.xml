@@ -2,6 +2,6 @@
   <name>compLeteAIPlugin</name>
   <loader class="com.nomagic.magicdraw.plugins.PluginLoader"/>
   <properties>
-    <property key="pluginClass">com.complete.plugin.compLetePlugin</property>
+    <property key="pluginClass">com.complete.plugin.CompLetePlugin</property>
   </properties>
 </plugin>

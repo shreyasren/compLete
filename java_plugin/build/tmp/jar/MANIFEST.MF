@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-Plugin-Class: com.complete.plugin.compLetePlugin
-
