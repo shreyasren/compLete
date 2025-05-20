@@ -38,7 +38,7 @@ compLete/                     ← Git repo root
 │   │   ├── test_middleware.py
 │   │   └── test_rag.py
 │   ├── requirements.txt
-│   ├── Dockerfile
+│   ├── app/Dockerfile
 │   └── data/                         ← FAISS index & documents
 │
 └── java_plugin/              ← MagicDraw/Cameo plugin
