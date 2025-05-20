@@ -11,7 +11,7 @@
 
 | Capability                          | Description                                                                                                                                 |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Model Validation**                | Automatically checks requirements coverage (e.g., ISO 26262, ASPICE) and flags unsatisfied requirements or missing elements.                |
+| **Model Validation**                | *Planned*: automatically check requirements coverage (e.g., ISO 26262, ASPICE) and flag unsatisfied requirements or missing elements. |
 | **Model Completion**                | AI-driven addition of missing Blocks, Ports, Connectors, and Requirement allocations from partial models and textual queries.               |
 | **Domain Grounding**                | Retrieval-Augmented Generation (RAG) using FAISS + SentenceTransformer over a curated corpus of standards, past models, and best practices. |
 | **Secure & Containerized**          | Token-based authentication, TLS on every API call, Docker/Docker-Compose for reproducible deployment.                                       |
