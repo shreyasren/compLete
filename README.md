@@ -48,13 +48,15 @@ compLete/                     ← Git repo root
     ├── gradle/                ← wrapper JAR + properties
     ├── src/
     │   ├── main/java/com/complete/plugin/
-    │   │   ├── CompletePlugin.java        ← plugin entry point
+    │   │   ├── CompLetePlugin.java        ← plugin entry point
+    │   │   ├── AppConfig.java
+    │   │   ├── ConfigLoader.java
     │   │   ├── SysMLModelService.java     ← model I/O, HTTP calls
     │   │   ├── HttpClientHelper.java
     │   │   └── ModelDiagramHelper.java
     │   └── resources/application.properties
     └── src/test/java/com/complete/plugin/
-        └── SysMLModelServiceTest.java
+        └── ConfigLoaderTest.java
 ```
 
 ---
