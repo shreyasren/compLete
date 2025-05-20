@@ -47,7 +47,7 @@ compLete/                     ← Git repo root
     ├── gradlew*               ← Gradle wrapper scripts
     ├── gradle/                ← wrapper JAR + properties
     ├── src/
-    │   ├── main/java/com/complete/plugin/
+    │   ├── main/java/com/compLete/plugin/
     │   │   ├── CompLetePlugin.java        ← plugin entry point
     │   │   ├── AppConfig.java
     │   │   ├── ConfigLoader.java
@@ -55,7 +55,7 @@ compLete/                     ← Git repo root
     │   │   ├── HttpClientHelper.java
     │   │   └── ModelDiagramHelper.java
     │   └── resources/application.properties
-    └── src/test/java/com/complete/plugin/
+    └── src/test/java/com/compLete/plugin/
         └── ConfigLoaderTest.java
 ```
 Note: the middleware's Dockerfile resides in `python_middleware/app/`.
