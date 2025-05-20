@@ -25,10 +25,11 @@
 compLete/                     ← Git repo root
 ├── .gitignore                ← ignores build artifacts, venv, IDE files
 ├── README.md                 ← this document
-├── docker-compose.yml        ← launches Python middleware container
 │
 ├── python_middleware/        ← AI API service
+│   ├── docker-compose.yml    ← middleware container stack
 │   ├── app/
+│   │   ├── Dockerfile                ← middleware image
 │   │   ├── middleware.py             ← Flask REST API (/complete_model, /health)
 │   │   ├── rag_engine.py             ← FAISS + SentenceTransformer retrieval
 │   │   ├── utils.py                  ← prompt builder, JSON parser, Java-CLI invoker
@@ -38,7 +39,6 @@ compLete/                     ← Git repo root
 │   │   ├── test_middleware.py
 │   │   └── test_rag.py
 │   ├── requirements.txt
-│   ├── Dockerfile
 │   └── data/                         ← FAISS index & documents
 │
 └── java_plugin/              ← MagicDraw/Cameo plugin
@@ -56,6 +56,7 @@ compLete/                     ← Git repo root
     └── src/test/java/com/complete/plugin/
         └── SysMLModelServiceTest.java
 ```
+Note: the middleware's Dockerfile resides in `python_middleware/app/`.
 
 ---
 
