@@ -106,7 +106,7 @@ cd java_plugin
 ./gradlew clean build          # downloads Gradle, compiles & tests
 
 # Copy plugin JAR into MagicDraw's plugins folder
-cp build/libs/compLete-plugin-1.0.0.jar \
+cp build/libs/compLete-1.0.0.jar \
    "/Applications/Cameo Systems Modeler/plugins/"
 ```
 
