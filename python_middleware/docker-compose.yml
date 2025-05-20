@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  middleware:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      OPENAI_API_KEY: "${OPENAI_API_KEY}"
+      FLASK_API_KEY: "${FLASK_API_KEY}"
+      RAG_INDEX_PATH: "/app/data/faiss.index"
+      RAG_DOCS_PATH: "/app/data/docs.pkl"
+    volumes:
+      - ./data:/app/data:ro
+      - ./cert.pem:/app/cert.pem:ro
+      - ./key.pem:/app/key.pem:ro

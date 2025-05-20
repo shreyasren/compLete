@@ -1,0 +1,7 @@
+<plugin>
+  <name>compLeteAIPlugin</name>
+  <loader class="com.nomagic.magicdraw.plugins.PluginLoader"/>
+  <properties>
+    <property key="pluginClass">com.complete.plugin.compLetePlugin</property>
+  </properties>
+</plugin>
