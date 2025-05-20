@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.env
+
+# Java/Gradle
+java_plugin/build/
+.gradle/
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+

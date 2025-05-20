@@ -1,4 +1,4 @@
-package com.compLete.plugin;
+package com.complete.plugin;
 
 import com.nomagic.magicdraw.uml.DiagramManager;
 import com.nomagic.uml2.ext.magicdraw.classes.mdkernel.Element;

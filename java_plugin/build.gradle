@@ -19,5 +19,5 @@ tasks.withType(Test) {
 }
 
 jar {
-    manifest { attributes 'Plugin-Class': 'com.complete.plugin.compLetePlugin' }
+    manifest { attributes 'Plugin-Class': 'com.complete.plugin.CompLetePlugin' }
 }

@@ -2,7 +2,7 @@
 import pytest
 from app.rag_engine import RAGEngine
 
-@ pytest.fixture
+@pytest.fixture
 def rag():
     return RAGEngine()
 

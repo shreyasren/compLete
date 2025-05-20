@@ -5,6 +5,7 @@ from jsonschema import validate, ValidationError
 import openai
 from rag_engine import RAGEngine
 from utils import build_prompt, parse_suggestions, execute_java_command
+from auth import auth
 
 # Configure logging
 default_level = logging.INFO
@@ -33,6 +34,7 @@ command_schema = {
 app = Flask(__name__)
 
 @app.route('/complete_model', methods=['POST'])
+@auth.login_required
 def complete_model():
     try:
         data = request.get_json(force=True)

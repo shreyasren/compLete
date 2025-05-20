@@ -4,7 +4,7 @@ import com.nomagic.magicdraw.plugins.Plugin;
 import com.nomagic.magicdraw.plugins.PluginDescriptor;
 import javax.swing.*;
 
-public class compLetePlugin extends Plugin {
+public class CompLetePlugin extends Plugin {
     private SysMLModelService service;
 
     @Override
