@@ -7,6 +7,7 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 import org.json.JSONObject;
 import java.nio.charset.StandardCharsets;
+import com.complete.plugin.HttpRequestException;
 
 public class HttpClientHelper {
     private final CloseableHttpClient client;
@@ -28,8 +29,17 @@ public class HttpClientHelper {
         post.setHeader("Authorization", "Bearer " + apiKey);
         post.setHeader("Content-Type", "application/json");
         post.setEntity(new StringEntity(body.toString(), StandardCharsets.UTF_8));
-        return client.execute(post, resp ->
-            new String(resp.getEntity().getContent().readAllBytes(), StandardCharsets.UTF_8)
-        );
+
+        return client.execute(post, resp -> {
+            String respBody = new String(
+                resp.getEntity().getContent().readAllBytes(),
+                StandardCharsets.UTF_8
+            );
+            int code = resp.getCode();
+            if (code < 200 || code >= 300) {
+                throw new HttpRequestException(code, respBody);
+            }
+            return respBody;
+        });
     }
 }
