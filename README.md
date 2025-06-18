@@ -112,6 +112,10 @@ cp build/libs/compLete-1.0.0.jar \
 
 Adjust `application.properties` inside the JAR (or re-package) to set the middleware URL and API key.
 
+The Python middleware's `execute_java_command` expects the built plugin JAR at
+`java_plugin/build/libs/compLete-1.0.0.jar`, so ensure the Gradle build step has
+been run before invoking that function.
+
 ---
 
 ### 3 · Use compLete inside MagicDraw
