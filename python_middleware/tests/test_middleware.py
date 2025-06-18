@@ -1,10 +1,10 @@
 import os
+os.environ['FLASK_API_KEY'] = 'testtoken'
 import pytest
 from app.middleware import app
 
 @pytest.fixture
 def client():
-    os.environ['FLASK_API_KEY'] = 'testtoken'
     app.config['TESTING'] = True
     with app.test_client() as c:
         yield c
