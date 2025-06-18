@@ -48,7 +48,8 @@ public class SysMLModelService {
     public void applySuggestions(String json) throws Exception {
         JSONObject s = new JSONObject(json);
         SessionManager.getInstance().createSession(project, "AI Completion");
-        Map<String, NamedElement> created = new HashMap<>();
+        try {
+            Map<String, NamedElement> created = new HashMap<>();
 
         // Blocks
         JSONArray newBlocks = s.optJSONArray("new_blocks");
@@ -86,7 +87,9 @@ public class SysMLModelService {
                 }
             }
         }
-
-        SessionManager.getInstance().closeSession(project);
+        }
+        finally {
+            SessionManager.getInstance().closeSession(project);
+        }
     }
 }
