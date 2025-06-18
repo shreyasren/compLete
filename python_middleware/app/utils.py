@@ -2,7 +2,7 @@ import os
 import json
 import subprocess
 
-JAVA_JAR_PATH = os.getenv('JAVA_JAR_PATH', 'java_plugin/SysMLModelBuilder.jar')
+JAVA_JAR_PATH = os.getenv('JAVA_JAR_PATH', 'java_plugin/build/libs/compLete-1.0.0.jar')
 JAVA_CMD = os.getenv('JAVA_CMD', 'java')
 
 
