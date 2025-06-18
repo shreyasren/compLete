@@ -3,6 +3,7 @@ package com.complete.plugin;
 import com.nomagic.magicdraw.plugins.Plugin;
 import com.nomagic.magicdraw.plugins.PluginDescriptor;
 import javax.swing.*;
+import com.complete.plugin.HttpRequestException;
 
 public class CompLetePlugin extends Plugin {
     private SysMLModelService service;
@@ -21,10 +22,20 @@ public class CompLetePlugin extends Plugin {
             String ctx = service.extractModelContext();
             String json = service.requestCompletion(ctx, "Complete the model");
             service.applySuggestions(json);
+        } catch (HttpRequestException hre) {
+            JOptionPane.showMessageDialog(
+                null,
+                "Middleware error: " + hre.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null,
+            JOptionPane.showMessageDialog(
+                null,
                 "compLete error: " + ex.getMessage(),
-                "Error", JOptionPane.ERROR_MESSAGE);
+                "Error",
+                JOptionPane.ERROR_MESSAGE
+            );
         }
     }
 
