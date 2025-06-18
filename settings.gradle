@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = 'compLete'
-include('app')
+include('java_plugin')
